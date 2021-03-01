@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/mnt/c/Users/Sabhya/Desktop/IStudio/library/build",
+  "command": "/bin/g++-10   -I/mnt/c/Users/Sabhya/Desktop/IStudio/library/include -I/mnt/c/Users/Sabhya/Desktop/IStudio/library/source  -g   -ggdb -O3 -Wall -Wextra -Werror -Wshadow -std=c++2a -fconcepts -pedantic -o CMakeFiles/IStudioLang.dir/source/main.cpp.o -c /mnt/c/Users/Sabhya/Desktop/IStudio/library/source/main.cpp",
+  "file": "/mnt/c/Users/Sabhya/Desktop/IStudio/library/source/main.cpp"
+}
+]

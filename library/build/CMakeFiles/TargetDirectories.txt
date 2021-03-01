@@ -1,0 +1,4 @@
+/mnt/c/Users/Sabhya/Desktop/IStudio/library/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Sabhya/Desktop/IStudio/library/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Sabhya/Desktop/IStudio/library/build/CMakeFiles/test.dir
+/mnt/c/Users/Sabhya/Desktop/IStudio/library/build/CMakeFiles/IStudioLang.dir
