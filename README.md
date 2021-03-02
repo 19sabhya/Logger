@@ -30,13 +30,15 @@ a metaclass, such as:
 
 ```Singleton ERROR_Helper{};
 Singleton WARNING_Helper{};
-.... so on```
+.... so on
+```
 
 Let's make an object of these helper classes. 
 
 ```ERROR_Helper ERROR;
 WARNING_Helper WARNING;
-... so on```
+... so on
+```
 
 These singleton classes now must be accessible to the class Logger. The class Logger constructor must take 
 the path to the output file as discussed earlier. We made the class Logger thread-safe using a mutex lock.
@@ -57,14 +59,16 @@ in the log file, simultaneously.
                     throw fileName + " Error opening file";
             file.close();
             }
-};```
+};
+```
 
 Now, we must set the severity level to define which entry is being made. We use the operator overloading 
 on the operator "()" to set the severity level.
 
     ```auto operator()(ERROR_Helper){
            return Logger_Error{fileName, lock};
-    }```
+    }
+    ```
 
 The code above specifically shows that the entry made has a severity level of Error. Similarly, 
 operator "()" will be overloaded for other severity levels. The above code returns the value of 
@@ -102,7 +106,9 @@ be considered.
 To match all these changes our code needs to be updated as follows:
 
 In the private section of the class Logger following updates are required:
-        ```bool loggerEnable = true;
+        
+        ```
+        bool loggerEnable = true;
         int level=0;
         
         void setPropertyByName(string p,string v){
@@ -126,7 +132,8 @@ In the private section of the class Logger following updates are required:
                 {"ENABLE",(loggerEnable)?"TRUE":"FALSE"},
                 {"LEVEL",to_string(level)}
             };
-        }```
+        }
+        ```
 
 In the public section of class Logger the constructor will have the following updates:
         
@@ -148,16 +155,19 @@ In the public section of class Logger the constructor will have the following up
 
 In the public section of class Logger the operator overloading function on operator "()" will have the following update:
 
-```auto operator()(ERROR_Helper){
+```
+auto operator()(ERROR_Helper){
             if(loggerEnable)
                 return Logger_Error{fileName, lock};
             else
                 return Logger_Error{"",lock};
-        }```
+        }
+```
 
 Now for the conditions
 
-        ```auto If(Conditions c,ERROR_Helper){
+```
+        auto If(Conditions c,ERROR_Helper){
             if(loggerEnable){
                 if(c.getValue(getProperties())){
                     return Logger_Error{fileName,lock};
@@ -174,7 +184,8 @@ Now for the conditions
                 return Logger_Error{fileName,lock};
             }
             return Logger_Error{"",lock};
-        }```
+        }
+```
 
 Similarly, for other severity levels If blocks will be made.
 Now, our logger is almost complete. Let's make some entries through function main() and check the output.
@@ -201,7 +212,8 @@ Now, our logger is almost complete. Let's make some entries through function mai
         cout<<s<<endl;
     }
     return 0;
-}```
+}
+```
 
 It gave the following output:
 
