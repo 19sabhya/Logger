@@ -1,6 +1,6 @@
 # Logger
 
-![Tutorial](## Tutorial)
+[Tutorial](\README.md## Tutorial)
 
 **Logging** is the act of creating, updating, and maintaining the log file of a system or a software application. 
 It may seem like an easy task as all one has to do is add some comments to the log file about the events related 
