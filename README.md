@@ -230,8 +230,6 @@ Now, our logger is almost complete. Let's make some entries through function `ma
 ```
 
 It gave the following output:
+
+
 ![Output](/output.jpg)
-Format: ![Alt Text](url)
-
-
-
