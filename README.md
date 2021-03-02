@@ -7,7 +7,7 @@ we are going to learn today.
 
 ## Tutorial
 
-### Step 1:
+### Step 1
 
 The simplest interface that can be used is a class with a callable object.
 
@@ -44,7 +44,7 @@ WARNING_Helper WARNING;
 ... so on
 ```
 
-## Step 3
+### Step 3
 
 These singleton classes now must be accessible to the `class Logger`. The `class Logger` constructor must take 
 the path to the output file as discussed earlier. We made the class Logger thread-safe using a mutex lock.
@@ -230,7 +230,7 @@ Now, our logger is almost complete. Let's make some entries through function `ma
 ```
 
 It gave the following output:
-![Output](/images/logo.png)
+![Output](/output.jpg)
 Format: ![Alt Text](url)
 
 
