@@ -7,6 +7,8 @@ we are going to learn today.
 
 ## Tutorial
 
+### Step 1:
+
 The simplest interface that can be used is a class with a callable object.
 
 ```Logger log{//body};```
@@ -18,6 +20,8 @@ path to the output file should be passed to it in the body section. This would m
 
 Now, just like in file handling, an exception must be thrown by `FILESYSTEM` if the output file cannot be created 
 or updated. Thus, it is a good practice to wrap the code in a try-catch block. 
+
+### Step 2
 
 Next, we know that there is no fixed format of a log file. It is a helper tool created for future reference by 
 the developer, therefore, its structure is software application and developers' requirement specific. Generally,
@@ -39,6 +43,8 @@ Let's make an object of these helper classes.
 WARNING_Helper WARNING;
 ... so on
 ```
+
+## Step 3
 
 These singleton classes now must be accessible to the `class Logger`. The `class Logger` constructor must take 
 the path to the output file as discussed earlier. We made the class Logger thread-safe using a mutex lock.
@@ -62,6 +68,8 @@ in the log file, simultaneously.
 };
 ```
 
+### Step 4
+
 Now, we must set the severity level to define which entry is being made. We use the operator overloading 
 on the operator `"()"` to set the severity level.
 
@@ -73,6 +81,8 @@ on the operator `"()"` to set the severity level.
 The code above specifically shows that the entry made has a severity level of Error. Similarly, 
 operator `"()"` will be overloaded for other severity levels. The above code returns the value of 
 `Logger_Error{fileName, lock}`, so we must create a class representing it.
+
+### Step 5
 
 The `class Logger_Error` is the class responsible for finally making the entry of the various severity 
 levels in the specified output log file. Therefore, the constructor of the `class Logger_Error` takes 
@@ -102,6 +112,8 @@ represents those conditions. The conditions to be fulfilled are *Enable*, which 
 specifies whether an entry to the log file is to be made, and *Level*, which excepts an integer value, 
 specifies till which level the entry has to be made in the log file. In the future, more conditions can 
 be considered. 
+
+### Step 6
 
 To match all these changes our code needs to be updated as follows:
 
@@ -187,6 +199,9 @@ Now for the conditions
 ```
 
 Similarly, for other severity levels If blocks will be made.
+
+### Step 7
+
 Now, our logger is almost complete. Let's make some entries through function `main()` and check the output.
 
 ```int main(){
@@ -215,7 +230,8 @@ Now, our logger is almost complete. Let's make some entries through function `ma
 ```
 
 It gave the following output:
-
+![Output](/images/logo.png)
+Format: ![Alt Text](url)
 
 
 
