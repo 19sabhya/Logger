@@ -5,16 +5,16 @@ It may seem like an easy task as all one has to do is add some comments to the l
 to the system or a software application but it may not always be the case.  *How to create a log file?* That's what 
 we are going to learn today. 
 
-##Tutorial
+## Tutorial
 
 The simplest interface that can be used is a class with a callable object.
 
-Logger log{//body};
+```Logger log{//body};```
 
 The object **"log"** must have the access to the output file in order to update and make changes to it. Therefore, the
 path to the output file should be passed to it in the body section. This would make the above statement look like this:
 
-Logger log {"path_of_output_file"};
+```Logger log {"path_of_output_file"};```
 
 Now, just like in file handling, an exception must be thrown by FILESYSTEM if the output file cannot be created 
 or updated. Thus, it is a good practice to wrap the code in a try-catch block. 
@@ -28,22 +28,22 @@ entries are referred to as severity levels. So let's just make a helper class fo
 one instance of the class can be instantiated. There are many ways to do it but the best method would be to make
 a metaclass, such as:
 
-Singleton ERROR_Helper{};
+```Singleton ERROR_Helper{};
 Singleton WARNING_Helper{};
-.... so on
+.... so on```
 
 Let's make an object of these helper classes. 
 
-ERROR_Helper ERROR;
+```ERROR_Helper ERROR;
 WARNING_Helper WARNING;
-... so on
+... so on```
 
 These singleton classes now must be accessible to the class Logger. The class Logger constructor must take 
 the path to the output file as discussed earlier. We made the class Logger thread-safe using a mutex lock.
 It is done in order to avoid deadlock conditions that may arise when two or more threads attempt to write 
 in the log file, simultaneously.
 
-class Logger{
+```class Logger{
     private:
         string fileName;
         shared_ptr<mutex> lock =make_shared<mutex>();
@@ -57,14 +57,14 @@ class Logger{
                     throw fileName + " Error opening file";
             file.close();
             }
-};
+};```
 
 Now, we must set the severity level to define which entry is being made. We use the operator overloading 
 on the operator "()" to set the severity level.
 
-    auto operator()(ERROR_Helper){
+    ```auto operator()(ERROR_Helper){
            return Logger_Error{fileName, lock};
-    }
+    }```
 
 The code above specifically shows that the entry made has a severity level of Error. Similarly, 
 operator "()" will be overloaded for other severity levels. The above code returns the value of 
@@ -79,7 +79,7 @@ is then stored in the buffer "output" and whenever the object "lend" is encounte
 in the log file and the contents of the buffer are cleared. The operator overloading function with 
 parameter as lend is as following:
 
-        Logger_Error& operator<<(Logger_End_Of_File){
+        ```Logger_Error& operator<<(Logger_End_Of_File){
             if(name=="")
                 return *this;
             ofstream file{name,ios::app};
@@ -89,7 +89,7 @@ parameter as lend is as following:
             file<<return_current_time_and_date()<<" : Logger Entry (ERROR) \n\t"<<output<<endl;
             file.close();
             return *this;
-        }
+        }```
 
 At this point, our code for the logger may look complete. It is thread-safe, is able to make log entries
 in the log file of the specified name and at the specified path. If you look closely it is still incomplete
@@ -102,7 +102,7 @@ be considered.
 To match all these changes our code needs to be updated as follows:
 
 In the private section of the class Logger following updates are required:
-        bool loggerEnable = true;
+        ```bool loggerEnable = true;
         int level=0;
         
         void setPropertyByName(string p,string v){
@@ -126,10 +126,11 @@ In the private section of the class Logger following updates are required:
                 {"ENABLE",(loggerEnable)?"TRUE":"FALSE"},
                 {"LEVEL",to_string(level)}
             };
-        }
+        }```
 
 In the public section of class Logger the constructor will have the following updates:
-        template<LoggerProperties ... Properties>
+        
+        ```template<LoggerProperties ... Properties>
         Logger(string f,Properties... properties):fileName{f}{
             setProperty(properties...);
             if(loggerEnable){
@@ -143,19 +144,20 @@ In the public section of class Logger the constructor will have the following up
             }
             else
                 fileName="";
-        }
+        }```
 
 In the public section of class Logger the operator overloading function on operator "()" will have the following update:
-auto operator()(ERROR_Helper){
+
+```auto operator()(ERROR_Helper){
             if(loggerEnable)
                 return Logger_Error{fileName, lock};
             else
                 return Logger_Error{"",lock};
-        }
+        }```
 
 Now for the conditions
 
-        auto If(Conditions c,ERROR_Helper){
+        ```auto If(Conditions c,ERROR_Helper){
             if(loggerEnable){
                 if(c.getValue(getProperties())){
                     return Logger_Error{fileName,lock};
@@ -172,11 +174,12 @@ Now for the conditions
                 return Logger_Error{fileName,lock};
             }
             return Logger_Error{"",lock};
-        }
+        }```
 
 Similarly, for other severity levels If blocks will be made.
 Now, our logger is almost complete. Let's make some entries through function main() and check the output.
-int main(){
+
+```int main(){
     try{
 
         Logger l{"table.txt",enable = true,level=3};
@@ -198,7 +201,7 @@ int main(){
         cout<<s<<endl;
     }
     return 0;
-}
+}```
 
 It gave the following output:
 
