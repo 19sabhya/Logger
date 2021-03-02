@@ -65,10 +65,10 @@ in the log file, simultaneously.
 Now, we must set the severity level to define which entry is being made. We use the operator overloading 
 on the operator "()" to set the severity level.
 
-    ```auto operator()(ERROR_Helper){
+    auto operator()(ERROR_Helper){
            return Logger_Error{fileName, lock};
     }
-    ```
+    
 
 The code above specifically shows that the entry made has a severity level of Error. Similarly, 
 operator "()" will be overloaded for other severity levels. The above code returns the value of 
@@ -83,7 +83,7 @@ is then stored in the buffer "output" and whenever the object "lend" is encounte
 in the log file and the contents of the buffer are cleared. The operator overloading function with 
 parameter as lend is as following:
 
-        ```Logger_Error& operator<<(Logger_End_Of_File){
+        Logger_Error& operator<<(Logger_End_Of_File){
             if(name=="")
                 return *this;
             ofstream file{name,ios::app};
@@ -93,7 +93,7 @@ parameter as lend is as following:
             file<<return_current_time_and_date()<<" : Logger Entry (ERROR) \n\t"<<output<<endl;
             file.close();
             return *this;
-        }```
+        }
 
 At this point, our code for the logger may look complete. It is thread-safe, is able to make log entries
 in the log file of the specified name and at the specified path. If you look closely it is still incomplete
@@ -107,7 +107,7 @@ To match all these changes our code needs to be updated as follows:
 
 In the private section of the class Logger following updates are required:
         
-        ```
+        
         bool loggerEnable = true;
         int level=0;
         
@@ -133,11 +133,10 @@ In the private section of the class Logger following updates are required:
                 {"LEVEL",to_string(level)}
             };
         }
-        ```
 
 In the public section of class Logger the constructor will have the following updates:
         
-        ```template<LoggerProperties ... Properties>
+        template<LoggerProperties ... Properties>
         Logger(string f,Properties... properties):fileName{f}{
             setProperty(properties...);
             if(loggerEnable){
@@ -151,7 +150,7 @@ In the public section of class Logger the constructor will have the following up
             }
             else
                 fileName="";
-        }```
+        }
 
 In the public section of class Logger the operator overloading function on operator "()" will have the following update:
 
