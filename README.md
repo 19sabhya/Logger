@@ -1,14 +1,17 @@
 # Logger
-Logging means the act of creating, updating, and maintaining the log file of a system or a software application. 
+
+**Logging** is the act of creating, updating, and maintaining the log file of a system or a software application. 
 It may seem like an easy task as all one has to do is add some comments to the log file about the events related 
-to the system or a software application but it may not always be the case.  How to create a log file? That's what 
+to the system or a software application but it may not always be the case.  *How to create a log file?* That's what 
 we are going to learn today. 
+
+##Tutorial
 
 The simplest interface that can be used is a class with a callable object.
 
 Logger log{//body};
 
-The object "log" must have the access to the output file in order to update and make changes to it. Therefore, the
+The object **"log"** must have the access to the output file in order to update and make changes to it. Therefore, the
 path to the output file should be passed to it in the body section. This would make the above statement look like this:
 
 Logger log {"path_of_output_file"};
