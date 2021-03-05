@@ -7,14 +7,15 @@ It may seem like an easy task as all one has to do is add some comments to the l
 to the system or a software application but it may not always be the case.  *How to create a log file?* That's what 
 we are going to learn today. 
 
-## Tutorial
 <a name="Tutorial"></a>
 <details open><summary>Tutorial</summary>
+<p>
+
+<a name="step1"></a>
+<details open><summary>Step 1</summary>
+
+<p>
     
-    <p>
-
-### Step 1
-
 The simplest interface that can be used is a class with a callable object.
 
 ```Logger log{//body};```
@@ -26,8 +27,12 @@ path to the output file should be passed to it in the body section. This would m
 
 Now, just like in file handling, an exception must be thrown by `FILESYSTEM` if the output file cannot be created 
 or updated. Thus, it is a good practice to wrap the code in a try-catch block. 
+</p>
+</details>
 
-### Step 2
+<a name="step2"></a>
+<details open><summary>Step 2</summary>
+</p>
 
 Next, we know that there is no fixed format of a log file. It is a helper tool created for future reference by 
 the developer, therefore, its structure is software application and developers' requirement specific. Generally,
@@ -49,8 +54,12 @@ Let's make an object of these helper classes.
 WARNING_Helper WARNING;
 ... so on
 ```
+</p>
+</dtails>
 
-### Step 3
+<a name="step3"></a>
+<details open><summary>Step 3</summary>
+<p>
 
 These singleton classes now must be accessible to the `class Logger`. The `class Logger` constructor must take 
 the path to the output file as discussed earlier. We made the class Logger thread-safe using a mutex lock.
@@ -73,8 +82,12 @@ in the log file, simultaneously.
             }
 };
 ```
+</p>
+</details>
 
-### Step 4
+<a name="step4"></a>
+<details open><summary>Step 4</summary>
+<p>
 
 Now, we must set the severity level to define which entry is being made. We use the operator overloading 
 on the operator `"()"` to set the severity level.
@@ -88,7 +101,12 @@ The code above specifically shows that the entry made has a severity level of Er
 operator `"()"` will be overloaded for other severity levels. The above code returns the value of 
 `Logger_Error{fileName, lock}`, so we must create a class representing it.
 
-### Step 5
+</p>
+</dtails>
+
+<a name="step5"></a>
+<details open><summary>Step 5</summary>
+<p>
 
 The `class Logger_Error` is the class responsible for finally making the entry of the various severity 
 levels in the specified output log file. Therefore, the constructor of the `class Logger_Error` takes 
@@ -119,7 +137,12 @@ specifies whether an entry to the log file is to be made, and *Level*, which exc
 specifies till which level the entry has to be made in the log file. In the future, more conditions can 
 be considered. 
 
-### Step 6
+<p>
+</details>
+
+<a name="step6"></a>
+<details open><summary>Step 6</summary>
+<p>
 
 To match all these changes our code needs to be updated as follows:
 
@@ -206,7 +229,12 @@ Now for the conditions
 
 Similarly, for other severity levels If blocks will be made.
 
-### Step 7
+</p>
+</details>
+
+<a name="step7"></a>
+<details open><summary>Step 7</summary>
+<p>
 
 Now, our logger is almost complete. Let's make some entries through function `main()` and check the output.
 
@@ -234,6 +262,10 @@ Now, our logger is almost complete. Let's make some entries through function `ma
     return 0;
 }
 ```
+
+</p>
+</details>
+
 <a name="output"></a>
 <details open><summary>Output</summary>
 </p>
