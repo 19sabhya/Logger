@@ -13,6 +13,8 @@ we are going to learn today.
 ## Tutorial
 <a name="Tutorial"></a>
 <details open><summary>Tutorial</summary>
+    
+    <p>
 
 ### Step 1
 
@@ -237,8 +239,13 @@ Now, our logger is almost complete. Let's make some entries through function `ma
 ```
 <a name="output"></a>
 <details open><summary>Output</summary>
-
+</p>
 It gave the following output:
 
-
+</p align = "centre">
 ![Output](/output.jpg)
+</p>
+</p>
+<details>
+</p>
+</details>
