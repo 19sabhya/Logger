@@ -17,11 +17,12 @@ we are going to learn today.
 <p>
     
 The simplest interface that can be used is a class with a callable object.
-<p font size= 100><b>
+div{font-size: large
+<b>
 
 ```Logger log{//body};```
 </b>
-</p>
+}
 
 The object **"log"** must have the access to the output file in order to update and make changes to it. Therefore, the
 path to the output file should be passed to it in the body section. This would make the above statement look like this:
