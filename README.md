@@ -2,9 +2,6 @@
 
 | [Tutorial](## Tutorial) |
 
-<a name="motivation"></a>
-<details open><summary>Motivation</summary>
-
 **Logging** is the act of creating, updating, and maintaining the log file of a system or a software application. 
 It may seem like an easy task as all one has to do is add some comments to the log file about the events related 
 to the system or a software application but it may not always be the case.  *How to create a log file?* That's what 
@@ -243,9 +240,9 @@ Now, our logger is almost complete. Let's make some entries through function `ma
 It gave the following output:
 
 </p align = "centre">
-![Output](/output.jpg)
+<img src ="/output.jpg">
 </p>
 </p>
-<details>
+</details>
 </p>
 </details>
