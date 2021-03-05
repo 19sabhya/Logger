@@ -17,7 +17,7 @@ we are going to learn today.
 <p>
     
 The simplest interface that can be used is a class with a callable object.
-div{font-size: large
+div{font-size: large;
 <b>
 
 ```Logger log{//body};```
