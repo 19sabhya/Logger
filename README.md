@@ -1,6 +1,6 @@
 # Logger
 
-| [Tutorial](## Tutorial) |
+| [Tutorial](#Tutorial) | [Step 1](#Step 1) | [Step 2](#Step 2) | [Step 3](#Step 3) | [Step 4](#Step 4) | [Step 5](#Step 5) | [Step 6](#Step 6) | [Step 7](#Step 7) | [Output](#Output) |
 
 **Logging** is the act of creating, updating, and maintaining the log file of a system or a software application. 
 It may seem like an easy task as all one has to do is add some comments to the log file about the events related 
@@ -55,7 +55,7 @@ WARNING_Helper WARNING;
 ... so on
 ```
 </p>
-</dtails>
+</details>
 
 <a name="step3"></a>
 <details open><summary>Step 3</summary>
@@ -102,7 +102,7 @@ operator `"()"` will be overloaded for other severity levels. The above code ret
 `Logger_Error{fileName, lock}`, so we must create a class representing it.
 
 </p>
-</dtails>
+</details>
 
 <a name="step5"></a>
 <details open><summary>Step 5</summary>
