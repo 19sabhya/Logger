@@ -1,6 +1,6 @@
 # Logger
 
-| [Tutorial](#Tutorial) | [Step 1](#Step 1) | [Step 2](#Step 2) | [Step 3](#Step 3) | [Step 4](#Step 4) | [Step 5](#Step 5) | [Step 6](#Step 6) | [Step 7](#Step 7) | [Output](#Output) |
+| [Tutorial](#Tutorial) | [Step 1](#Step-1) | [Step 2](#Step-2) | [Step 3](#Step-3) | [Step 4](#Step-4) | [Step 5](#Step-5) | [Step 6](#Step-6) | [Step 7](#Step-7) | [Output](#Output) |
 
 **Logging** is the act of creating, updating, and maintaining the log file of a system or a software application. 
 It may seem like an easy task as all one has to do is add some comments to the log file about the events related 
