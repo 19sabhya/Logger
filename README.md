@@ -152,6 +152,7 @@ This is what the code looks like now. Click [here](https://godbolt.org/z/573T31)
 <a name="step6"></a>
 <details open><summary>Step 6</summary>
 <p>
+    
 The conditions to be fulfilled are:
 * Enable
 * Level
