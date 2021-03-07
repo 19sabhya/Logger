@@ -18,14 +18,16 @@ we are going to learn today.
     
 The simplest interface that can be used is a class with a callable object.
 
-**
-```Logger log{//body};```
-**
+```cpp
+Logger log{//body};
+```
 
 The object **"log"** must have the access to the output file in order to update and make changes to it. Therefore, the
 path to the output file should be passed to it in the body section. This would make the above statement look like this:
 
-```Logger log {"path_of_output_file"};```
+```cpp
+Logger log {"path_of_output_file"};
+```
 
 Now, just like in file handling, an exception must be thrown by `FILESYSTEM` if the output file cannot be created 
 or updated. Thus, it is a good practice to wrap the code in a try-catch block. 
@@ -45,14 +47,16 @@ entries are referred to as severity levels. So let's just make a helper class fo
 one instance of the class can be instantiated. There are many ways to do it but the best method would be to make
 a metaclass, such as:
 
-```Singleton ERROR_Helper{};
+```cpp
+Singleton ERROR_Helper{};
 Singleton WARNING_Helper{};
 .... so on
 ```
 
 Let's make an object of these helper classes. 
 
-```ERROR_Helper ERROR;
+```cpp
+ERROR_Helper ERROR;
 WARNING_Helper WARNING;
 ... so on
 ```
@@ -68,7 +72,8 @@ the path to the output file as discussed earlier. We made the class Logger threa
 It is done in order to avoid deadlock conditions that may arise when two or more threads attempt to write 
 in the log file, simultaneously.
 
-```class Logger{
+```cpp
+class Logger{
     private:
         string fileName;
         shared_ptr<mutex> lock =make_shared<mutex>();
@@ -94,10 +99,11 @@ in the log file, simultaneously.
 Now, we must set the severity level to define which entry is being made. We use the operator overloading 
 on the operator `"()"` to set the severity level.
 
-    auto operator()(ERROR_Helper){
-           return Logger_Error{fileName, lock};
-    }
-    
+```cpp
+auto operator()(ERROR_Helper){
+     return Logger_Error{fileName, lock};
+}
+```    
 
 The code above specifically shows that the entry made has a severity level of Error. Similarly, 
 operator `"()"` will be overloaded for other severity levels. The above code returns the value of 
@@ -119,6 +125,7 @@ is then stored in the buffer "output" and whenever the object "lend" is encounte
 in the log file and the contents of the buffer are cleared. The operator overloading function with 
 parameter as lend is as following:
 
+  ```cpp
         Logger_Error& operator<<(Logger_End_Of_File){
             if(name=="")
                 return *this;
@@ -130,6 +137,7 @@ parameter as lend is as following:
             file.close();
             return *this;
         }
+```
 
 At this point, our code for the logger may look complete. It is thread-safe, is able to make log entries
 in the log file of the specified name and at the specified path. If you look closely it is still incomplete
@@ -150,7 +158,7 @@ To match all these changes our code needs to be updated as follows:
 
 In the `private` section of the `class Logger` following updates are required:
         
-        
+```cpp
         bool loggerEnable = true;
         int level=0;
         
@@ -176,9 +184,11 @@ In the `private` section of the `class Logger` following updates are required:
                 {"LEVEL",to_string(level)}
             };
         }
+```
 
 In the `public` section of `class Logger` the constructor will have the following updates:
         
+```cpp
         template<LoggerProperties ... Properties>
         Logger(string f,Properties... properties):fileName{f}{
             setProperty(properties...);
@@ -194,10 +204,11 @@ In the `public` section of `class Logger` the constructor will have the followin
             else
                 fileName="";
         }
+```
 
 In the `public` section of `class Logger` the operator overloading function on operator `"()"` will have the following update:
 
-```
+```cpp
 auto operator()(ERROR_Helper){
             if(loggerEnable)
                 return Logger_Error{fileName, lock};
@@ -208,7 +219,7 @@ auto operator()(ERROR_Helper){
 
 Now for the conditions
 
-```
+```cpp
         auto If(Conditions c,ERROR_Helper){
             if(loggerEnable){
                 if(c.getValue(getProperties())){
@@ -240,7 +251,8 @@ Similarly, for other severity levels If blocks will be made.
 
 Now, our logger is almost complete. Let's make some entries through function `main()` and check the output.
 
-```int main(){
+```cpp
+int main(){
     try{
 
         Logger l{"table.txt",enable = true,level=3};
