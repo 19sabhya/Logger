@@ -10,6 +10,8 @@ we are going to learn today.
 <a name="Tutorial"></a>
 <details open><summary>Tutorial</summary>
 <p>
+</p>
+</details>
 
 <a name="step1"></a>
 <details open><summary>Step 1</summary>
@@ -292,7 +294,5 @@ It gave the following output:
 </p align = "centre">
 <img src ="/output.jpg">
 </p>
-</p>
-</details>
 </p>
 </details>
