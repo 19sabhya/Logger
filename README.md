@@ -142,7 +142,11 @@ parameter as lend is as following:
 At this point, our code for the logger may look complete. It is thread-safe, is able to make log entries
 in the log file of the specified name and at the specified path. If you look closely it is still incomplete
 as we may want to make entry of only a certain part. Thus, we need certain conditions and variables to
-represents those conditions. The conditions to be fulfilled are *Enable*, which excepts a boolean value, 
+represents those conditions. 
+
+This is what the code looks like now. Click [here](https://godbolt.org/z/573T31) to check it.
+
+The conditions to be fulfilled are *Enable*, which excepts a boolean value, 
 specifies whether an entry to the log file is to be made, and *Level*, which excepts an integer value, 
 specifies till which level the entry has to be made in the log file. In the future, more conditions can 
 be considered. 
