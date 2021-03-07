@@ -146,17 +146,17 @@ represents those conditions.
 
 This is what the code looks like now. Click [here](https://godbolt.org/z/573T31) to check it.
 
-The conditions to be fulfilled are *Enable*, which excepts a boolean value, 
-specifies whether an entry to the log file is to be made, and *Level*, which excepts an integer value, 
-specifies till which level the entry has to be made in the log file. In the future, more conditions can 
-be considered. 
-
 <p>
 </details>
 
 <a name="step6"></a>
 <details open><summary>Step 6</summary>
 <p>
+The conditions to be fulfilled are:
+1. **Enable**: Enable is used to specify whether an entry to the log file is to be made or not. It accepts a boolean value, therefore, *true* signifies that an entry is to made while *false* signifies that no entry is to be made.
+2. **Level**: Level is used to specify level till which the entry has to be made in the log file. It accepts an integer value, such that counter begins at 0 from the point it is called.
+
+In the future, more conditions can be considered. 
 
 To match all these changes our code needs to be updated as follows:
 
@@ -294,5 +294,7 @@ It gave the following output:
 </p>
 </p>
 </details>
+
+You can check out the complete code [here](https://godbolt.org/z/KbMM7b).
 </p>
 </details>
