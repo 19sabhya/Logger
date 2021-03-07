@@ -154,7 +154,7 @@ This is what the code looks like now. Click [here](https://godbolt.org/z/573T31)
 <p>
 The conditions to be fulfilled are:
 1. **Enable**: Enable is used to specify whether an entry to the log file is to be made or not. It accepts a boolean value, therefore, *true* signifies that an entry is to made while *false* signifies that no entry is to be made.
-2. **Level**: Level is used to specify level till which the entry has to be made in the log file. It accepts an integer value, such that counter begins at 0 from the point it is called.
+1. **Level**: Level is used to specify level till which the entry has to be made in the log file. It accepts an integer value, such that counter begins at 0 from the point it is called.
 
 In the future, more conditions can be considered. 
 
