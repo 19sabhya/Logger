@@ -1,6 +1,6 @@
 # Logger
 
-| [Tutorial](#Tutorial) | [Step 1](#Step-1) | [Step 2](#Step-2) | [Step 3](#Step-3) | [Step 4](#Step-4) | [Step 5](#Step-5) | [Step 6](#Step-6) | [Step 7](#Step-7) | [Output](#Output) |
+| [Tutorial](#Tutorial) | [Step 1](#step1) | [Step 2](#step2) | [Step 3](#step3) | [Step 4](#step4) | [Step 5](#step5) | [Step 6](#step6) | [Step 7](#step7) | [Output](#output) |
 
 **Logging** is the act of creating, updating, and maintaining the log file of a system or a software application. 
 It may seem like an easy task as all one has to do is add some comments to the log file about the events related 
@@ -10,8 +10,6 @@ we are going to learn today.
 <a name="Tutorial"></a>
 <details open><summary>Tutorial</summary>
 <p>
-</p>
-</details>
 
 <a name="step1"></a>
 <details open><summary>Step 1</summary>
@@ -294,5 +292,7 @@ It gave the following output:
 </p align = "centre">
 <img src ="/output.jpg">
 </p>
+</p>
+</details>
 </p>
 </details>
