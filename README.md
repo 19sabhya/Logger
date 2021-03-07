@@ -285,7 +285,7 @@ int main(){
     return 0;
 }
 ```
-
+You can check out the complete code here at [https://godbolt.org/z/KbMM7b](https://godbolt.org/z/KbMM7b).
 </p>
 </details>
 
@@ -299,7 +299,5 @@ It gave the following output:
 </p>
 </p>
 </details>
-
-You can check out the complete code [here](https://godbolt.org/z/KbMM7b).
 </p>
 </details>
