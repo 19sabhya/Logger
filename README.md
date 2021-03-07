@@ -153,8 +153,8 @@ This is what the code looks like now. Click [here](https://godbolt.org/z/573T31)
 <details open><summary>Step 6</summary>
 <p>
 The conditions to be fulfilled are:
-1.  Enable
-2.  Level
+* Enable
+* Level
 
 **Enable**: Enable is used to specify whether an entry to the log file is to be made or not. It accepts a boolean value, therefore, *true* signifies that an entry is to made while *false* signifies that no entry is to be made.
 
