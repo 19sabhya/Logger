@@ -144,7 +144,7 @@ in the log file of the specified name and at the specified path. If you look clo
 as we may want to make entry of only a certain part. Thus, we need certain conditions and variables to
 represents those conditions. 
 
-This is what the code looks like now. Click [here](https://godbolt.org/z/573T31) to check it.
+This is what the code looks like now. Click here at [https://godbolt.org/z/573T31](https://godbolt.org/z/573T31) to check it.
 
 <p>
 </details>
